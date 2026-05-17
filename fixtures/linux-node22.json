@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1",
+  "generatedAt": "2026-05-17T09:00:00.000Z",
+  "projectRoot": "demo",
+  "os": {
+    "platform": "linux",
+    "release": "6.8.0",
+    "arch": "x64"
+  },
+  "shell": "/bin/bash",
+  "tools": [
+    {
+      "name": "git",
+      "command": "git --version",
+      "ok": true,
+      "stdout": "git version 2.45.0"
+    },
+    {
+      "name": "node",
+      "command": "node --version",
+      "ok": true,
+      "stdout": "v22.11.0"
+    }
+  ],
+  "packageManager": {
+    "name": "pnpm",
+    "lockfiles": [
+      {
+        "path": "pnpm-lock.yaml",
+        "algorithm": "sha256",
+        "hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "bytes": 140
+      }
+    ],
+    "packageJson": {
+      "name": "demo",
+      "version": "1.0.0",
+      "dependencies": {
+        "commander": "^12.1.0"
+      }
+    }
+  },
+  "git": {
+    "available": true,
+    "head": "def456",
+    "branch": "main",
+    "dirty": true,
+    "changedFiles": 1,
+    "statusSummary": [
+      " M package.json"
+    ]
+  },
+  "env": [
+    {
+      "key": "CI",
+      "state": "present",
+      "value": "true"
+    },
+    {
+      "key": "NODE_ENV",
+      "state": "present",
+      "value": "test"
+    }
+  ],
+  "configFiles": [
+    {
+      "path": "package.json",
+      "algorithm": "sha256",
+      "hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "bytes": 81
+    }
+  ],
+  "extraCommands": []
+}
