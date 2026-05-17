@@ -3,20 +3,53 @@
   "version": "0.1.0",
   "description": "Redacted environment receipt and diff CLI.",
   "type": "module",
-  "main": "./src/index.js",
+  "bin": {
+    "envreceipt": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
   "exports": {
-    ".": "./src/index.js"
+    ".": "./dist/index.js"
   },
   "files": [
-    "src",
-    "README.md"
+    "dist",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
   ],
   "scripts": {
-    "test": "node --test",
+    "build": "tsc",
+    "check": "tsc --noEmit",
+    "test": "npm run build && node --test dist/**/*.test.js",
+    "smoke": "npm run build && bash scripts/smoke.sh",
     "package:smoke": "npm pack --dry-run",
-    "release:check": "npm test && npm run package:smoke"
+    "release:check": "npm run check && npm test && npm run smoke && npm run package:smoke"
   },
-  "keywords": [],
+  "keywords": [
+    "cli",
+    "environment",
+    "redaction",
+    "reproducibility",
+    "receipt",
+    "diff"
+  ],
   "author": "Roger Chappel",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogerchappel/envreceipt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rogerchappel/envreceipt/issues"
+  },
+  "homepage": "https://github.com/rogerchappel/envreceipt#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
 }
