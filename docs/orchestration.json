@@ -1,0 +1,28 @@
+{
+  "project": "envreceipt",
+  "kind": "oss-cli",
+  "language": "typescript",
+  "packageManager": "npm",
+  "node": ">=20",
+  "entrypoint": "dist/cli.js",
+  "commands": {
+    "install": "npm ci",
+    "check": "npm run check",
+    "test": "npm test",
+    "build": "npm run build",
+    "smoke": "npm run smoke",
+    "validate": "bash scripts/validate.sh",
+    "capture": "node dist/cli.js capture . --out .envreceipt/local.json --markdown .envreceipt/local.md",
+    "diffFixtures": "node dist/cli.js diff fixtures/mac-node20.json fixtures/linux-node22.json --json"
+  },
+  "artifacts": [
+    ".envreceipt/local.json",
+    ".envreceipt/local.md"
+  ],
+  "privacy": {
+    "uploads": false,
+    "capturesFileContents": false,
+    "hashAlgorithm": "sha256",
+    "redactsSecretLikeEnvKeys": true
+  }
+}
