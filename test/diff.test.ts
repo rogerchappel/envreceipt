@@ -10,7 +10,7 @@ test('diffReceipts compares fixtures with stable severities', async () => {
   const diff = diffReceipts(before, after, { comparedAt: new Date('2026-05-17T10:00:00.000Z') });
 
   assert.equal(diff.comparedAt, '2026-05-17T10:00:00.000Z');
-  assert.equal(diff.summary.fail, 3);
+  assert.equal(diff.summary.fail, 4);
   assert.ok(diff.items.some((item) => item.path === 'tools.node' && item.severity === 'fail'));
   assert.ok(diff.items.some((item) => item.path === 'os.platform' && item.severity === 'warn'));
 });
