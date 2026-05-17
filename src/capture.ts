@@ -23,7 +23,7 @@ export async function captureReceipt(projectPath: string, options: CaptureOption
     detectToolVersions(),
     collectPackageManager(projectRoot),
     collectGit(projectRoot),
-    collectConfigFiles(projectRoot, config.configFiles),
+    collectConfigFiles(projectRoot, config.configFiles ?? []),
     Promise.all(config.extraCommands.map((item) => runShellCommand(item.name, item.command)))
   ]);
 
@@ -40,7 +40,7 @@ export async function captureReceipt(projectPath: string, options: CaptureOption
     tools: tools.sort((a, b) => a.name.localeCompare(b.name)),
     packageManager,
     git,
-    env: redactEnv(env, config.env.allow, config.env.reveal),
+    env: redactEnv(env, config.env.allow ?? [], config.env.reveal ?? []),
     configFiles,
     extraCommands: extraCommands.sort((a, b) => a.name.localeCompare(b.name))
   };

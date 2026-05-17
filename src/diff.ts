@@ -10,8 +10,8 @@ export function diffReceipts(
 ): DiffResult {
   const rules: RuleConfig = {
     severity: {
-      fail: [...defaultConfig.severity.fail, ...(options.severity?.fail ?? [])],
-      warn: [...defaultConfig.severity.warn, ...(options.severity?.warn ?? [])]
+      fail: [...(defaultConfig.severity.fail ?? []), ...(options.severity?.fail ?? [])],
+      warn: [...(defaultConfig.severity.warn ?? []), ...(options.severity?.warn ?? [])]
     }
   };
 
@@ -77,10 +77,10 @@ function compareTools(items: DiffItem[], before: Receipt, after: Receipt, rules:
 }
 
 function severityFor(path: string, rules: RuleConfig): Severity {
-  if (rules.severity.fail.some((rule) => path.startsWith(rule))) {
+  if ((rules.severity.fail ?? []).some((rule) => path.startsWith(rule))) {
     return 'fail';
   }
-  if (rules.severity.warn.some((rule) => path.startsWith(rule))) {
+  if ((rules.severity.warn ?? []).some((rule) => path.startsWith(rule))) {
     return 'warn';
   }
   return 'info';
