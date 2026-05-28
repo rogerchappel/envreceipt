@@ -4,11 +4,11 @@
   "description": "Redacted environment receipt and diff CLI.",
   "type": "module",
   "bin": {
-    "envreceipt": "./dist/cli.js"
+    "envreceipt": "./dist/src/cli.js"
   },
-  "main": "./dist/index.js",
+  "main": "./dist/src/index.js",
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./dist/src/index.js"
   },
   "files": [
     "dist",

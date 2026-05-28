@@ -7,8 +7,8 @@ cd "$repo_root"
 rm -rf .envreceipt
 mkdir -p .envreceipt
 
-node dist/cli.js capture . --out .envreceipt/local.json --markdown .envreceipt/local.md
-node dist/cli.js diff fixtures/mac-node20.json fixtures/linux-node22.json --json --out .envreceipt/fixture-diff.json || status=$?
+node dist/src/cli.js capture . --out .envreceipt/local.json --markdown .envreceipt/local.md
+node dist/src/cli.js diff fixtures/mac-node20.json fixtures/linux-node22.json --json --out .envreceipt/fixture-diff.json || status=$?
 
 if [ "${status:-0}" -ne 2 ]; then
   echo "expected fixture diff to exit 2 because fail-level differences exist" >&2
