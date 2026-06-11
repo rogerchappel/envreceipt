@@ -9,7 +9,7 @@ security posture before using it in production.
 
 ## Install
 
-Replace this section with the generated repository's installation steps.
+Install dependencies and build the CLI before running the fixture-backed smoke checks.
 
 ```sh
 pnpm install
@@ -17,11 +17,12 @@ pnpm install
 
 ## Use
 
-Replace this section with the smallest useful example for the generated
-repository.
+Run the CLI against an environment file to produce a redacted receipt that can
+be attached to a build handoff.
 
 ```sh
-pnpm dev
+npm run build
+node dist/src/cli.js capture . --out receipt.json --markdown receipt.md
 ```
 
 ## Verify
