@@ -9,21 +9,30 @@ security posture before using it in production.
 
 ## Install
 
-Install dependencies and build the CLI before running the fixture-backed smoke checks.
+Install dependencies and build the CLI before running the fixture-backed smoke
+checks.
 
 ```sh
-pnpm install
+npm install
+npm run build
 ```
 
 ## Use
 
-Run the CLI against an environment file to produce a redacted receipt that can
-be attached to a build handoff.
+Capture a redacted receipt for the current repository:
 
 ```sh
-npm run build
 node dist/src/cli.js capture . --out receipt.json --markdown receipt.md
 ```
+
+Compare two saved receipts before and after an environment change:
+
+```sh
+node dist/src/cli.js diff fixtures/mac-node20.json fixtures/linux-node22.json --markdown diff.md
+```
+
+The receipt records deterministic project, git, runtime, package manager, and
+selected environment facts while redacting secret-like names and values.
 
 ## Verify
 
@@ -45,23 +54,13 @@ should be small, reviewable, and verified before review.
 See [SECURITY.md](SECURITY.md) for vulnerability reporting guidance. Replace
 the default security policy before publishing the generated repository.
 
-These links assume this README has been copied to the generated repository root.
+Review generated receipts before sharing them outside the repository. Redaction
+is intentionally conservative, but project-specific secret names may require
+additional filtering.
 
 ## License
 
 MIT
-
-## Development
-
-```sh
-git clone https://github.com/rogerchappel/undefined.git
-cd undefined
-npm install
-npm test
-npm run smoke
-npm run package:smoke
-npm run release:check
-```
 
 ## Development
 
