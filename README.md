@@ -36,6 +36,12 @@ selected environment facts while redacting secret-like names and values.
 
 ## Verify
 
+Run the full local release gate:
+
+```sh
+npm run release:check
+```
+
 Run the local validation script before opening a pull request:
 
 ```sh
@@ -52,7 +58,7 @@ should be small, reviewable, and verified before review.
 ## Security
 
 See [SECURITY.md](SECURITY.md) for vulnerability reporting guidance. Replace
-the default security policy before publishing the generated repository.
+the default reporting address before publishing under a different maintainer.
 
 Review generated receipts before sharing them outside the repository. Redaction
 is intentionally conservative, but project-specific secret names may require
