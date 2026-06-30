@@ -2,6 +2,20 @@
 
 Privacy-preserving environment receipts for local builds and handoffs.
 
+
+## Quickstart
+
+Run the tool from a fresh checkout:
+
+```sh
+npm install
+npm run build
+node dist/src/cli.js --help
+npm test
+```
+
+The help command confirms the CLI entrypoint is reachable, and `npm test` runs the committed regression suite before you rely on the output.
+
 ## Status
 
 This repository is early-stage. Confirm the current support, release, and
