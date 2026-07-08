@@ -48,6 +48,18 @@ node dist/src/cli.js diff fixtures/mac-node20.json fixtures/linux-node22.json --
 The receipt records deterministic project, git, runtime, package manager, and
 selected environment facts while redacting secret-like names and values.
 
+## Limitations
+
+- envreceipt records a local environment snapshot; it does not reproduce the
+  environment or install missing dependencies.
+- Redaction is best-effort and intentionally conservative. Review receipts
+  before sharing them outside the project, especially when custom variables are
+  involved.
+- Diffs highlight changed facts between two receipts, but they do not diagnose
+  the root cause of a build or runtime failure.
+- Receipts are most useful for handoffs and review evidence, not as a complete
+  software bill of materials or compliance attestation.
+
 ## Verify
 
 Run the full local release gate:
